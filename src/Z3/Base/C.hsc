@@ -972,6 +972,9 @@ foreign import ccall unsafe "Z3_get_quantifier_body"
 foreign import ccall unsafe "Z3_substitute_vars"
     z3_substitute_vars :: Ptr Z3_context -> Ptr Z3_ast -> CUInt -> Ptr (Ptr Z3_ast) -> IO (Ptr Z3_ast)
 
+foreign import ccall unsafe "Z3_substitute"
+    z3_substitute :: Ptr Z3_context -> Ptr Z3_ast -> CUInt -> Ptr (Ptr Z3_ast) -> Ptr (Ptr Z3_ast) -> IO (Ptr Z3_ast)
+
 ---------------------------------------------------------------------
 -- * AST vectors
 

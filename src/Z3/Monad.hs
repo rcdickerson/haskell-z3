@@ -264,6 +264,7 @@ module Z3.Monad
   , getBv
 
   -- * Modifiers
+  , substitute
   , substituteVars
 
   -- * Models
@@ -1686,6 +1687,9 @@ getBv = liftFun2 Base.getBv
 
 ---------------------------------------------------------------------
 -- Modifiers
+
+substitute :: MonadZ3 z3 => AST -> [AST] -> [AST] -> z3 AST
+substitute = liftFun3 Base.substitute
 
 substituteVars :: MonadZ3 z3 => AST -> [AST] -> z3 AST
 substituteVars = liftFun2 Base.substituteVars

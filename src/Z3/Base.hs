@@ -306,6 +306,7 @@ module Z3.Base (
   , getBv
 
   -- * Modifiers
+  , substitute
   , substituteVars
 
   -- * Models
@@ -2036,6 +2037,14 @@ getBv c a signed = getInt c =<< mkBv2int c a signed
 -- Modifiers
 
 -- TODO Modifiers
+
+substitute :: Context -> AST -> [AST] -> [AST] -> IO AST
+substitute ctx a from to =
+  marshal z3_substitute ctx $ \f ->
+    h2c a $ \aPtr ->
+    marshalArrayLen from $ \fromNum fromArr ->
+    marshalArray to $ \toArr ->
+      f aPtr fromNum fromArr toArr
 
 substituteVars :: Context -> AST -> [AST] -> IO AST
 substituteVars ctx a vars =
