@@ -926,6 +926,9 @@ foreign import ccall unsafe "Z3_simplify_ex"
 foreign import ccall unsafe "Z3_is_quantifier_forall"
   z3_is_quantifier_forall :: Ptr Z3_context -> Ptr Z3_ast -> IO Z3_bool
 
+foreign import ccall unsafe "Z3_is_quantifier_exists"
+  z3_is_quantifier_exists :: Ptr Z3_context -> Ptr Z3_ast -> IO Z3_bool
+
 -- | Reference: <https://z3prover.github.io/api/html/group__capi.html#gaa5820368b5ae944bd17f10c2f8247c11>
 foreign import ccall unsafe "Z3_get_quantifier_weight"
   z3_get_quantifier_weight :: Ptr Z3_context -> Ptr Z3_ast -> IO CUInt

@@ -1941,7 +1941,7 @@ isQuantifierForall :: Context -> AST -> IO Bool
 isQuantifierForall = liftFun1 z3_is_quantifier_forall
 
 isQuantifierExists :: Context -> AST -> IO Bool
-isQuantifierExists ctx = fmap not . isQuantifierForall ctx
+isQuantifierExists = liftFun1 z3_is_quantifier_exists
 
 getQuantifierWeight :: Context -> AST -> IO Int
 getQuantifierWeight = liftFun1 z3_get_quantifier_weight
