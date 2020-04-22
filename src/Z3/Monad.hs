@@ -114,6 +114,7 @@ module Z3.Monad
   , mkDiv
   , mkMod
   , mkRem
+  , mkPower
   , mkLt
   , mkLe
   , mkGt
@@ -935,6 +936,9 @@ mkMod = liftFun2 Base.mkMod
 -- Reference: <http://research.microsoft.com/en-us/um/redmond/projects/z3/group__capi.html#ga2fcdb17f9039bbdaddf8a30d037bd9ff>
 mkRem :: MonadZ3 z3 => AST -> AST -> z3 AST
 mkRem = liftFun2 Base.mkRem
+
+mkPower :: MonadZ3 z3 => AST -> AST -> z3 AST
+mkPower = liftFun2 Base.mkPower
 
 -- | Create less than.
 --
